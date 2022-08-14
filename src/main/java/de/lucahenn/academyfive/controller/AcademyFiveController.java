@@ -18,7 +18,7 @@ public class AcademyFiveController {
 
     @GetMapping
     private String index() {
-        return "Welcome to ASW Academy Five API, the path you're searching for is /api/v1/grades :)";
+        return "Welcome to the Community API for the ASW, the path you're searching for is /api/v1/grades :)";
     }
 
     @PostMapping("/api/v1/grades")
