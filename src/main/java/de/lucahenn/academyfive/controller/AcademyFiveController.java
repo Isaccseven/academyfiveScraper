@@ -12,7 +12,7 @@ import lombok.AllArgsConstructor;
 
 @RestController
 @AllArgsConstructor
-@CrossOrigin
+@CrossOrigin(origins = "*")
 public class AcademyFiveController {
 
     private GradeService loginService;
