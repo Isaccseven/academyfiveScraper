@@ -11,7 +11,6 @@ import de.lucahenn.academyfive.service.GradeService;
 import lombok.AllArgsConstructor;
 
 @RestController
-@RequestMapping("/api/v1")
 @AllArgsConstructor
 public class AcademyFiveController {
 
@@ -22,7 +21,7 @@ public class AcademyFiveController {
         return "Welcome to ASW Academy Five API, the path you're searching for is /api/v1/grades :)";
     }
 
-    @PostMapping("/grades")
+    @PostMapping("/api/v1/grades")
     private Object index(@RequestBody Login login) {
         return loginService.returnGrades(login);
     }
