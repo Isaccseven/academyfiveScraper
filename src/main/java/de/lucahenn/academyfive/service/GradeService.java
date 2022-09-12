@@ -1,5 +1,6 @@
 package de.lucahenn.academyfive.service;
 
+import de.lucahenn.academyfive.model.Grade;
 import org.springframework.stereotype.Service;
 
 import de.lucahenn.academyfive.constant.GradeConstants;
@@ -30,20 +31,22 @@ public class GradeService {
         return null;
     }
 
-    public ArrayList<List<String>> returnGrades(Login login) {
+    public ArrayList<Grade> returnGrades(Login login) {
         try {
             Document doc = Jsoup.connect(GradeConstants.GRADE_URL.getConstant())
                     .cookies(returnLoginResponse(login).cookies())
                     .post();
-            ArrayList<List<String>> selectedObjects = new ArrayList<>();
+            ArrayList<Grade> selectedObjects = new ArrayList<>();
             doc.select(
                     "#tabs-content-0 > div > div > div > div > div.panel-body > div > table > tbody > tr[style=font-weight: bold]")
                     .forEach(element -> {
                         ArrayList<String> list = new ArrayList<String>();
+                        Grade grade = new Grade();
                         element.select("td").forEach(selected -> {
                             list.add(selected.text());
+                            grade.setGrade(list);
                         });
-                        selectedObjects.add(list);
+                        selectedObjects.add(grade);
                     });
             return selectedObjects;
         } catch (IOException e) {
