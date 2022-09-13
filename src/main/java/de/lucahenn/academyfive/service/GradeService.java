@@ -5,6 +5,7 @@ import de.lucahenn.academyfive.model.GradeList;
 import org.springframework.stereotype.Service;
 
 import de.lucahenn.academyfive.constant.GradeConstants;
+import org.springframework.cache.annotation.Cacheable;
 import de.lucahenn.academyfive.model.Login;
 import java.io.IOException;
 import java.util.ArrayList;
