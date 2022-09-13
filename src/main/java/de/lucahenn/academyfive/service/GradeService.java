@@ -31,7 +31,8 @@ public class GradeService {
         }
         return null;
     }
-
+    
+    @Cacheable(value="grades",key="#login.username")
     public GradeList returnGrades(Login login) {
         try {
             Document doc = Jsoup.connect(GradeConstants.GRADE_URL.getConstant())
